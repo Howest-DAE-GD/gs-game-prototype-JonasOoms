@@ -1,5 +1,15 @@
 #pragma once
 #include "BaseGame.h"
+#include "Player.h"
+#include "IntroScreen.h"
+
+enum class GameState
+{
+	INTRO,
+	PLAY,
+	DEAD
+};
+
 class Game : public BaseGame
 {
 public:
@@ -23,8 +33,22 @@ public:
 
 private:
 
+	float m_Second;
+	GameState m_GameState{ GameState::INTRO };
+	
+	Player* m_pPlayer{};
+
+	bool m_HasSkipped{ false };
+	float m_FadeInTimer{ 0.f };
+	float m_DeathScreenTimer{ 0.f };
+
+	IntroScreen* m_Introscreen{};
+
+	Color4f m_Background = Color4f{ 0.0f,0.0f,0.0f,1.0f };
+
 	// FUNCTIONS
 	void Initialize();
 	void Cleanup( );
 	void ClearBackground( ) const;
+	void DrawDeathScreen() const;
 };
