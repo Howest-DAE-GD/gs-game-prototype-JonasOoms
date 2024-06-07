@@ -8,6 +8,12 @@ enum class PlayerState;
 class Player
 {
 public:
+
+	enum class SwordDirection
+	{
+		NONE, UP,DOWN,LEFT,RIGHT
+	};
+
 	Player(const Point2f& position, const float velocity, const Rectf& Viewport);
 
 	void ProcessMotion(const SDL_KeyboardEvent& e);
@@ -16,6 +22,11 @@ public:
 	void Update(float elapsedSec);
 
 	float GetSecondsLeft() { return m_SecondsLeft; };
+	void AddSeconds(float seconds);
+	void RemoveSeconds(float seconds);
+	Point2f GetPosition() { return m_Position; };
+	SwordDirection GetDirection() { return m_SwordDirection; };
+	Rectf GetCharacterBox() { return m_CharacterBox; };
 
 	void Reset(const Point2f& position);
 
@@ -28,13 +39,16 @@ private:
 	bool m_IsMoving{ false };
 	Rectf m_ViewPort;
 
+	SwordDirection m_SwordDirection;
+
 	const float m_MovementSpeed{ 5.f };
 
-	const float m_Width{ 36 };
-	const float m_Height{ 36 };
+	const float m_Width{ 64 };
+	const float m_Height{ 64 };
 
 	SoundEffect* m_DeathSound;
 
+	void DrawSword();
 
 
 };

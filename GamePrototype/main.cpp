@@ -12,10 +12,9 @@ int SDL_main(int argv, char** args)
 
 	StartHeapControl();
 
-	Game* pGame{ new Game{ Window{ "Wraith - Ooms, Jonas - 1DAE15", 846.f , 500.f } } };
+	Game* pGame{ new Game{ Window{ "Wraith - Ooms, Jonas - 1DAE15", 1920.f , 1080.f } } };
 	pGame->Run();
 	delete pGame;
-
 	DumpMemoryLeaks();
 	return 0;
 }

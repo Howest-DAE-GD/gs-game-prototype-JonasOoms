@@ -8,11 +8,16 @@ IntroScreen::IntroScreen(const Rectf& viewport) :
 	m_IntroTimer{0.f}
 {
 	Bell = new SoundEffect("Bell.wav");
-	Bell->SetVolume(4);
+	Bell->SetVolume(7);
 }
 
 void IntroScreen::Draw()
 {
+
+
+	Texture* space = new Texture("Space to skip intro.", "BlithedaleSerif-Regular.otf", 24, Color4f{ 1,1,1,1 });
+	space->Draw(Point2f{ 30   , 30 });
+	delete space;
 
 	if (m_IntroTimer >= 26.f)
 	{
@@ -21,6 +26,10 @@ void IntroScreen::Draw()
 			Bell->Play(0);
 			++DramaticCount;
 		}
+
+		Texture* Text = new Texture("WASD to move. Arrow keys to point your weapon.", "BlithedaleSerif-Regular.otf", 40, Color4f{ 1,1,1,1 });
+		Text->Draw(Point2f{ m_ViewPort.width / 2 - Text->GetWidth() / 2 ,m_ViewPort.height / 2 - Text->GetHeight() / 2 });
+		delete Text;
 
 	}
 
@@ -33,7 +42,7 @@ void IntroScreen::Draw()
 			++DramaticCount;
 		}
 
-		Texture* Text = new Texture("You must kill to be remembered.", "BlithedaleSerif-Regular.otf", 20, Color4f{ 1,1,1,1 });
+		Texture* Text = new Texture("You must kill to be remembered.", "BlithedaleSerif-Regular.otf", 40, Color4f{ 1,1,1,1 });
 		Text->Draw(Point2f{ m_ViewPort.width / 2 - Text->GetWidth() / 2 ,m_ViewPort.height / 2 - Text->GetHeight() / 2 });
 		delete Text;
 
@@ -47,7 +56,7 @@ void IntroScreen::Draw()
 			++DramaticCount;
 		}
 
-		Texture* Text = new Texture("The idea of your existence depends on your actions.", "BlithedaleSerif-Regular.otf", 20, Color4f{ 1,1,1,1 });
+		Texture* Text = new Texture("The idea of your existence depends on your actions.", "BlithedaleSerif-Regular.otf", 40, Color4f{ 1,1,1,1 });
 		Text->Draw(Point2f{ m_ViewPort.width / 2 - Text->GetWidth() / 2 ,m_ViewPort.height / 2 - Text->GetHeight() / 2 });
 		delete Text;
 
@@ -60,7 +69,7 @@ void IntroScreen::Draw()
 			Bell->Play(0);
 			++DramaticCount;
 		}
-		Texture* Text = new Texture("You are cursed to be forgotten.", "BlithedaleSerif-Regular.otf", 20, Color4f{ 1,1,1,1 });
+		Texture* Text = new Texture("You are cursed to be forgotten.", "BlithedaleSerif-Regular.otf", 40, Color4f{ 1,1,1,1 });
 		Text->Draw(Point2f{ m_ViewPort.width / 2 - Text->GetWidth() / 2 ,m_ViewPort.height / 2 - Text->GetHeight() / 2 });
 		delete Text;
 	}
@@ -72,7 +81,7 @@ void IntroScreen::Draw()
 			Bell->Play(0);
 			++DramaticCount;
 		}
-		Texture* Text = new Texture("You are a Wraith.", "BlithedaleSerif-Regular.otf", 20, Color4f{ 1,1,1,1 });
+		Texture* Text = new Texture("You are a Wraith.", "BlithedaleSerif-Regular.otf", 40, Color4f{ 1,1,1,1 });
 		Text->Draw(Point2f{ m_ViewPort.width / 2 - Text->GetWidth()/2,m_ViewPort.height / 2 - Text->GetHeight()/2});
 		delete Text;
 	}

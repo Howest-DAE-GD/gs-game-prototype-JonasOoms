@@ -47,6 +47,23 @@ struct Color4f
 	float a;
 };
 
+typedef struct ColorHSV
+{
+	ColorHSV();
+	explicit ColorHSV(float hue, float saturation, float value) :
+		hue{ hue },
+		saturation{ saturation },
+		value{ value }
+	{
+	}
+
+	float hue;
+	float saturation;
+	float value;
+
+} ColorHSV;
+
+
 struct Circlef
 {
 	Circlef( );

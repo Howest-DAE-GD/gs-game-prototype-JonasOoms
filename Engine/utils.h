@@ -9,6 +9,8 @@ namespace utils
 #pragma region OpenGLDrawFunctionality
 
 	void SetColor( const Color4f& color );
+
+	Color4f HSVtoColor4f(const ColorHSV& hsv);
 	
 	void DrawPoint( float x, float y, float pointSize = 1.0f );
 	void DrawPoint( const Point2f& p, float pointSize = 1.0f );
@@ -49,6 +51,8 @@ namespace utils
 	void FillPolygon( const Point2f* pVertices, size_t nrVertices);
 #pragma endregion OpenGLDrawFunctionality
 
+
+
 #pragma region CollisionFunctionality
 	struct HitInfo
 	{
@@ -84,3 +88,104 @@ namespace utils
 #pragma endregion CollisionFunctionality
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

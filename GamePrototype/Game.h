@@ -2,6 +2,8 @@
 #include "BaseGame.h"
 #include "Player.h"
 #include "IntroScreen.h"
+#include "Enemy.h"
+#include <vector>
 
 enum class GameState
 {
@@ -33,10 +35,19 @@ public:
 
 private:
 
+
+
 	float m_Second;
 	GameState m_GameState{ GameState::INTRO };
 	
 	Player* m_pPlayer{};
+	Enemy* m_pEnemy{};
+
+	std::vector<Enemy*> enemies;
+
+	int m_Wave{-1};
+	float m_WaveDownTimer{ 0.f };
+	bool m_WaveDownBool{ false };
 
 	bool m_HasSkipped{ false };
 	float m_FadeInTimer{ 0.f };
@@ -47,8 +58,10 @@ private:
 	Color4f m_Background = Color4f{ 0.0f,0.0f,0.0f,1.0f };
 
 	// FUNCTIONS
+	void SpawnCornerMemories();
 	void Initialize();
 	void Cleanup( );
 	void ClearBackground( ) const;
 	void DrawDeathScreen() const;
+	void DrawWaveScreen() const;
 };

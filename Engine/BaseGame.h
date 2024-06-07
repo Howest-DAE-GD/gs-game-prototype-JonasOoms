@@ -52,6 +52,8 @@ public:
 		return m_Viewport;
 	}
 
+	SDL_Window* GetBaseWindow() { return m_pWindow; };
+
 private:
 	// DATA MEMBERS
 	// The window properties

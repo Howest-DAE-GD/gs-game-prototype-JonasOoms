@@ -12,6 +12,38 @@ void utils::SetColor( const Color4f& color )
 	glColor4f( color.r, color.g, color.b, color.a );
 }
 
+Color4f utils::HSVtoColor4f(const ColorHSV& hsv)
+{
+		float r, g, b;
+
+		float h = hsv.hue;
+		float s = hsv.saturation / 100.0f;
+		float v = hsv.value / 100.0f;
+
+		int i = static_cast<int>(h / 60.0f) % 6;
+		float f = (h / 60.0f) - i;
+		float p = v * (1 - s);
+		float q = v * (1 - f * s);
+		float t = v * (1 - (1 - f) * s);
+
+		switch (i) {
+		case 0: r = v; g = t; b = p; break;
+		case 1: r = q; g = v; b = p; break;
+		case 2: r = p; g = v; b = t; break;
+		case 3: r = p; g = q; b = v; break;
+		case 4: r = t; g = p; b = v; break;
+		case 5: r = v; g = p; b = q; break;
+		}
+
+		Color4f rgb;
+		rgb.r = static_cast<int>(r);
+		rgb.g = static_cast<int>(g);
+		rgb.b = static_cast<int>(b);
+		rgb.a = 1;
+
+		return rgb;
+}
+
 void utils::DrawPoint( float x, float y, float pointSize )
 {
 	glPointSize( pointSize );
